@@ -1,4 +1,6 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import static com.codeborne.selenide.Selenide.open;
@@ -12,5 +14,10 @@ public class TestBase {
     @BeforeEach
     void setUp() {
         open("https://planetazoo.tomsk.ru/");
+    }
+
+    @AfterEach
+    void afterEach() {
+        Selenide.closeWebDriver();
     }
 }
